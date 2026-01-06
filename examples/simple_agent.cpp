@@ -16,7 +16,7 @@ int main() {
     sp_config.backend = ServiceProviderBackend::GROQ;
     sp_config.endpoint = "https://api.groq.com/openai/v1/chat/completions"; // Groq endpoint
     sp_config.model_name = "llama-3.3-70b-versatile";                          // your model
-    sp_config.api_key = "";                                 // set your key
+    sp_config.api_key = std::getenv("GROQ_API_KEY");                                 // set your key
 
     std::shared_ptr<Model> sp = ServiceProviderFactory::create(sp_config);
 
@@ -25,7 +25,7 @@ int main() {
 
     // Slack tool configuration
     tools::SlackConfig slack_config;
-    slack_config.webhook_url = "";
+    slack_config.webhook_url = std::getenv("SLACK_WEBHOOK_URL");
     slack_config.channel = "#all-aiagent";
     slack_config.username = "incoming-webhook";
     slack_config.icon_emoji = ":ghost:";
