@@ -1,0 +1,4 @@
+#pragma once
+
+#define AGENT_RUNTIME_VERSION_MAJOR 1
+#define AGENT_RUNTIME_VERSION_MINOR 0
